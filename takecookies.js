@@ -3,11 +3,11 @@ var noco=jQuery.cookie('nocook');var nocostyle="<style>\
 background-color: #ffffff; \
 border: 2px solid #343434; \
 bottom: 20px; \
-max-height: 30%; \
+max-height: 50%; \
 padding: 1px; \
 position: absolute; \
 right: 20px; \
-width: 300px; \
+max-width: 300px; \
 display: none; \
 } \
 #askcook a, #askcook a:visited, #askcook a:hover {\
@@ -24,6 +24,15 @@ button#cookok { \
 display:block; \
 margin: 0 auto; \
 } \
+@media screen and (max-width: 568px) { \
+#askcook { \
+border-left: medium none; \
+border-right: medium none; \
+bottom: 0; \
+max-width: 100%; \
+right: auto; \
+width: 100%; \
+}\
 </style>";if(!noco){
 	jQuery("head").append(nocostyle);
 	jQuery("body").prepend("<div id='askcook'><p>To spletno mesto uporablja piškotke z namenom zagotavljanja spletne storitve, oglasnih sistemov in funkcionalnosti, ki jih brez piškotkov ne bi mogli nuditi. Z obiskom in uporabo spletnega mesta soglašate s piškotki. <span><a href='http://zavod.over.net/o-piskotkih/'>Več o piškotkih</a> </span> <button id='cookok' class='pure-button'>V redu</button></p></div>");
