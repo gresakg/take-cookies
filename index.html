@@ -19,6 +19,9 @@
 		background-color: #ccc;
 		padding: 40px;
 	}
+	.refresh-me {
+		display: none; 
+	}
     </style>
 </head>
 
@@ -27,14 +30,19 @@
 		<h1>Cookie test</h1>
 		<p>Hello Foo!</p>
 		<p>Če hočeš, da se obvestilo znova prikaže, zbriši cookie s klikom na spodnji gumb in osveži stran (F5).</p>
-		<button class="pure-button delcook">Remove cookie</button>
-		<div 
+		<button class="pure-button delcook">Odstrani cookie</button>
+		<button class="pure-button refresh-me">Osveži stran.</button>
 	</div>
     <script src="takecookies.js"></script>
     <script>
-	$(".delcook").click(function() {
-		jQuery.removeCookie('nocook');
-	});
+		$(".delcook").click(function() {
+			jQuery.removeCookie('nocook');
+			jQuery('.delcook').text('Cookie odstranjen').addClass('pure-button-disabled');
+			jQuery('.refresh-me').fadeIn('slow');
+		});
+		$(".refresh-me").click(function() {
+			location.reload();
+		});
     </script>
 </body>
 </html>
