@@ -12,6 +12,7 @@ position: absolute; \
 right: 20px; \
 max-width: 300px; \
 display: none; \
+z-index: 10000 !important;\
 } \
 #askcook a, #askcook a:visited, #askcook a:hover {\
 color: #31a8f0; \
