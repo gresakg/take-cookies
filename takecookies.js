@@ -1,9 +1,4 @@
-if( typeof jQuery.cookie != 'function' ) {
-	jqcook = document.createElement('script');
-	jqcook.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js';
-	
-}
-var noco = jQuery.cookie('nocook');var nocostyle = "<style>\
+var noco=jQuery.cookie('nocook');var nocostyle="<style>\
 #askcook { \
 background-color: #fff; \
 border: 2px solid #343434; \
