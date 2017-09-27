@@ -1,4 +1,6 @@
-var noco=jQuery.cookie('nocook');var nocostyle="<style>\
+;(function($){
+	var noco = $.cookie('noco');
+	var nocostyle="<style>\
 #askcook { \
 background-color: #fff; \
 border: 2px solid #343434; \
@@ -35,10 +37,31 @@ max-width: 100%; \
 right: auto; \
 width: 100%; \
 }\
-</style>";if(!noco){
-	jQuery("head").append(nocostyle);
-	jQuery("body").prepend("<div id='askcook'><p>To spletno mesto uporablja piškotke z namenom zagotavljanja spletne storitve, oglasnih sistemov in funkcionalnosti, ki jih brez piškotkov ne bi mogli nuditi. Z obiskom in uporabo spletnega mesta soglašate s piškotki. <span><a href='http://zavod.over.net/o-piskotkih/'>Več o piškotkih</a> </span> </p><p><button id='cookok' class='pure-button'>V redu</button></p></div>");
-	jQuery("#askcook").fadeIn('slow');
-	jQuery("#cookok").bind('click',function(){jQuery.cookie('nocook','1',{expires:365});
-	jQuery('#askcook').fadeOut('slow');});}
-else{}
+";
+	var takeit = {
+		sl: {
+			main:"To spletno mesto uporablja piškotke z namenom zagotavljanja spletne storitve, oglasnih sistemov in funkcionalnosti, ki jih brez piškotkov ne bi mogli nuditi. Z obiskom in uporabo spletnega mesta soglašate s piškotki.",
+			link:"http://zavod.over.net/o-piskotki",
+			about:"Več o piškotkih",
+			ok:"V redu"
+		},
+		hr: {
+			main:"Ova stranica koristi tzv. kolačiće kako bi osigurala bolje korisničko iskustvo i funkcionalnost. Koristeći našu stranicu slažete se s korištenjem kolačića. ",
+			link:"https://med.over.net/hr/o-kolacicima/",
+			about:"Više o kolačićima možete pročitati ovdje",
+			ok:"Uredu"
+		}
+	}
+
+	if(!noco){
+		var lang = $('html').attr('lang') || "sl";
+		console.log(lang);
+		$("head").append(nocostyle);
+		$("body").prepend("<div id='askcook'><p>" + takeit[lang].main + "<span><a href='" + takeit[lang].link  + "'>" + takeit[lang].about + "</a> </span> </p><p><button id='cookok' class='pure-button'>" + takeit[lang].ok + "</button></p></div>");
+		$("#askcook").fadeIn('slow');
+		$("#cookok").bind('click',function(){
+			$.cookie('noco','1',{expires:365});
+			$('#askcook').fadeOut('slow');
+		});
+	}
+}(jQuery));
