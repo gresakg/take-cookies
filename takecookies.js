@@ -55,6 +55,7 @@ width: 100%; \
 
 	if(!noco){
 		var lang = $('html').attr('lang') || "sl";
+		lang = lang.substring(0,2);
 		console.log(lang);
 		$("head").append(nocostyle);
 		$("body").prepend("<div id='askcook'><p>" + takeit[lang].main + "<span><a href='" + takeit[lang].link  + "'>" + takeit[lang].about + "</a> </span> </p><p><button id='cookok' class='pure-button'>" + takeit[lang].ok + "</button></p></div>");
