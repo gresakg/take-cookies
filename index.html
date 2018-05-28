@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <style>
 	body {
 		background-color: #D15C00;
@@ -33,10 +32,11 @@
 		<button class="pure-button delcook">Odstrani cookie</button>
 		<button class="pure-button refresh-me">Osveži stran.</button>
 	</div>
-    <script src="takecookies.js?v=1"></script>
+    <script src="takecookies.js?v=2"></script>
     <script>
 		$(".delcook").click(function() {
-			jQuery.removeCookie('nocook');
+			//jQuery.removeCookie('nocook');
+			document.cookie = "noco=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
 			jQuery('.delcook').text('Cookie odstranjen').addClass('pure-button-disabled');
 			jQuery('.refresh-me').fadeIn('slow');
 		});
